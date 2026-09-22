@@ -17,7 +17,7 @@ public class ImageFileCopy {
                 fOut.write((byte)data);
             }
 
-            System.out.println("이미지 복사 완료");
+            System.out.print("이미지 복사 완료");
 
             fIn.close();
             fOut.close();
