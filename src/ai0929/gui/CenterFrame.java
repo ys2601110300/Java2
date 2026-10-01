@@ -12,8 +12,8 @@ public class CenterFrame {
         int y = (sh-h)/2;
         int[] location = {x, y};
 
-        //Dimension locationDim = new Dimension(x, y);
+        Dimension locationDim = new Dimension(x, y);
 
-        return location;
+        return locationDim;
     }
 }
