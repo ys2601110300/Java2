@@ -10,12 +10,12 @@ public class ButtonTest2 extends JFrame{
         int w = 500;
         int h = 200;
 
-    //    Dimension locationDim = CenterFrame.getLocation(w, h);
-    //    int x = locationDim.width; // 정가운데 표시되는 x좌표
-    //    int y = locationDim.height; // 정가운데 표시되는 y좌표
-        int[] location = CenterFrame.getLocation(w, h);
-        int x = location[0];
-        int y = location[1];
+        Dimension locationDim = CenterFrame.getLocation(w, h);
+        int x = locationDim.width; // 정가운데 표시되는 x좌표
+        int y = locationDim.height; // 정가운데 표시되는 y좌표
+    //    int[] location = CenterFrame.getLocation(w, h);
+    //    int x = location[0];
+    //    int y = location[1];
 
 
         setLayout(new FlowLayout());
