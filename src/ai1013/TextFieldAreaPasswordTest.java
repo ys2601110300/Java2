@@ -22,7 +22,7 @@ public class TextFieldAreaPasswordTest extends JFrame{
         add(area);
         add(passwordField);
 
-        int w = 250, h = 250;
+        int w = 350, h = 350;
         int[] locations = CenterFrame.getLocation(w, h);
         setBounds(locations[0], locations[1], w, h);
         setVisible(true);
