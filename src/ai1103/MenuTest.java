@@ -12,11 +12,23 @@ public class MenuTest extends JFrame {
     JTextArea textArea = new JTextArea();
     JFileChooser fileChooser = new JFileChooser();
     JFrame frame;
+    String[] btnIconFileNames = {"new", "open", "close","orange","blue","white"};
+    Color[] ColorNames = {Color.WHITE, Color.BLUE, Color.ORANGE};
+    JButton[] btns = new JButton[6];
 
     public MenuTest(){
         frame = this;
         JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         add(scrollPane);
+
+        JToolBar toolBar = new JToolBar();
+        add("North", toolBar);
+
+        for (int i = 0; i< btns.length; i ++){
+            btns[i] = new JButton(new ImageIcon("toolbar/" + btnIconFileNames[i] + ".png"));
+            btns[i].addActionListener(btnListener);
+            toolBar.add(btns[i]);
+        }
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
@@ -31,6 +43,8 @@ public class MenuTest extends JFrame {
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
         fileMenu.add(closeMenuItem);
+
+
 
         ActionListener actionListener = new ActionListener() {
             @Override
@@ -68,6 +82,29 @@ public class MenuTest extends JFrame {
         orangeMenuItem.addActionListener(backgroundListener);
         SetFrame.setFrame(this, "메뉴만들기", 500, 500);
     }
+
+    ActionListener btnListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JButton eBtn = (JButton)e.getSource();
+            File selectedFile;
+            if( eBtn == btns[0]){
+                textArea.setText("");
+            }else if( eBtn == btns[1]){
+                fileChooser.showOpenDialog(frame);
+                selectedFile = fileChooser.getSelectedFile();
+                textArea.setText(readFile(selectedFile));
+            }else if (eBtn == btns[2]){
+                System.exit(0);
+            }
+
+            for (int i = 0; i < ColorNames.length; i++){
+                if (eBtn == btns[i+3]){
+                    textArea.setBackground(ColorNames[i]);
+                }
+            }
+        }
+    };
 
     ActionListener backgroundListener = new ActionListener() {
         @Override
