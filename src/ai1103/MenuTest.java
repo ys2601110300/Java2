@@ -44,8 +44,6 @@ public class MenuTest extends JFrame {
         fileMenu.add(openMenuItem);
         fileMenu.add(closeMenuItem);
 
-
-
         ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
