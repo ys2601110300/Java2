@@ -1,7 +1,7 @@
 package book_management.domain;
 
 public class Book {
-    private int isbn;
+    private String isbn;
     private String name;
     private String author;
     private int price;
@@ -33,11 +33,11 @@ public class Book {
         this.inventory = inventory;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
