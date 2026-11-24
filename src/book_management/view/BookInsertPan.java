@@ -37,16 +37,16 @@ public class BookInsertPan extends JPanel {
             if (i < tableHeader.length - 2) {
                 tfs[i] = new JTextField();
                 panS.add(tfs[i]);
-            } else if (i ==5){
+            } else if (i == 5) {
                 panS.add(comboPublish);
-            }else {
+            } else {
                 panS.add(comboCategory);
             }
+        }
 
             JLabel emptylbl = new JLabel(" ");
             panS.add(emptylbl);
             panS.add(btnInsert);
-        }
     }
 
 
