@@ -1,4 +1,4 @@
-package book_management.view;
+package book_management;
 
 import book_management.domain.Book;
 
@@ -15,7 +15,7 @@ public class BookSearchPan extends JPanel {
     JComboBox <String> combo = new JComboBox<String>(comboStr);
     JTable table;
     DefaultTableModel model;
-    String[] tableHeader = {"도서 번호", "도서명", "출판사",  "저자명", "도서가격", "재고량", "카테고리"};
+    String[] tableHeader = {"도서 번호", "도서명", "저자명", "출판사", "도서가격", "재고량", "카테고리"};
     ArrayList<Book> bookList;
     String searchWord;
 

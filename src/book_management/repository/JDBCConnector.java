@@ -9,26 +9,19 @@ public class JDBCConnector {
     private static final String URL = "jdbc:oracle:thin:@localhost:1522/xe";
     private static final String USER_NAME = "C##aisoft";
     private static final String PASSWORD = "1234";
-    private static Connection con;
-
-    public static Connection getConnection(){
-        try{
-            //  1. JDBC Driver Memory Loading
+    public static Connection getConnection() throws SQLException {
+        try {
             Class.forName(DRIVER_PATH);
-            System.out.println("JDBC Driver Class founded");
-            //  2, Connection
-            con = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-            System.out.println("Connection success");
-        } catch(ClassNotFoundException e){
-            System.out.println("JDBC Driver Class not found");
-        } catch(SQLException e){
-            System.out.println("Connection failed");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Oracle JDBC 드라이버를 찾을 수 없습니다.", e);
         }
 
-        return con;
+        return DriverManager.getConnection(URL, USER_NAME, PASSWORD);
     }
 
-    public static void main(String[] args) {
-        getConnection();
+    public static void main(String[] args) throws SQLException {
+        try (Connection con = getConnection()) {
+            System.out.println("Connection success");
+        }
     }
 }
